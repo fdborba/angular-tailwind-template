@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\shared",
+    "\\src\\app\\shared\\layout\\app-header",
+    "\\src\\app\\shared\\services"
+  ],
+  "SelectedNode": "\\src\\app\\shared\\services\\sidebar.service.ts",
+  "PreviewInSolutionExplorer": false
+}
