@@ -1,0 +1,28 @@
+<div>
+  <app-page-breadcrumb pageTitle="Crud Inicial" />
+  <div class="grid grid-cols-1">
+    <app-component-card title="Filtro de Pesquisa">
+      <div class="grid grid-cols-6 gap-3">
+        <div class="col-span-5">
+          <app-label for="input">Input</app-label>
+          <app-input-field type="text" id="input" />
+        </div>
+        <div>
+          <app-label for="input">Input</app-label>
+          <app-input-field type="text" id="input" />
+        </div>
+      </div>
+    </app-component-card>
+  </div>
+  <div class="grid grid-cols-1 mt-2">
+    <app-component-card>
+      <div class="grid grid-cols-4 gap-3">
+        <div class="col-span-3">
+          <app-button size="sm" (btnClick)="handleSave()">
+            Pesquisar
+          </app-button>
+        </div>
+      </div>
+    </app-component-card>
+  </div>
+</div>
