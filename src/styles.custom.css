@@ -56,6 +56,9 @@
     color: #444;
     text-align: center;
     transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    width: stretch;
 }
 
 .rodape p {
@@ -87,13 +90,13 @@
     padding: .75rem 1rem;
     list-style: none;
     z-index: 99;
-    
+
 }
 
 .container-fluid {
     position: relative;
     padding-top: 5px;
-    padding-bottom: 15px;
+    padding-bottom: 115px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
