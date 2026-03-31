@@ -27,7 +27,7 @@ export class ButtonComponent {
 
   get sizeClasses(): string {
     return this.size === 'sm'
-      ? 'px-4 py-3 text-sm'
+      ? 'px-3 py-2 text-sm'
       : 'px-5 py-3.5 text-sm';
   }
 
