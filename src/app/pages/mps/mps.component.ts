@@ -8,7 +8,7 @@ import { InputFieldComponent } from '../../shared/components/form/input/input-fi
   imports: [
     PageBreadcrumbComponent,
     LabelComponent,
-    InputFieldComponent,
+    InputFieldComponent
   ],
   templateUrl: './mps.component.html',
 })
