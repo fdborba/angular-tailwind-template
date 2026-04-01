@@ -2,32 +2,41 @@
   <app-page-breadcrumb pageTitle="MPS" />
 
   <!--FILTRO DE PESQUISA-->
+  <!--CARD-->
   <div class="rounded-md border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] ">
     <!-- Card Header -->
     <div style="padding: .5rem 1rem !important;">
-      <h3 class=" dark:text-white/90" style="font-size: 13px; color: #464545;">
-        <i class="fas fa-search" style="color: #17a2b8;"></i> Filtro de Pesquisa
-      </h3>
+      <button (click)="toggleAccordion(1)" class="w-full flex justify-between items-center text-slate-800">
+        <h3 class=" dark:text-white/90" style="font-size: 13px; color: #464545;">
+          <i class="fas fa-search" style="color: #17a2b8;"></i> Filtro de Pesquisa
+        </h3>
+        <span id="icon-1" class="text-slate-800 transition-transform duration-300">
+          <i class="fas fa-chevron-down"></i>
+        </span>
+      </button>
     </div>
 
     <!-- Card Body -->
-    <div class="p-4 border-t border-gray-100 dark:border-gray-800 sm:p-6">
-      <div class="flex gap-3">
-        <div class="w-5/12">
-          <app-label for="txtServidor">Servidor</app-label>
-          <app-input-field type="text" id="txtServidor" />
-        </div>
-        <div class="w-4/12">
-          <app-label for="txtCargo">Cargo</app-label>
-          <app-input-field type="text" id="txtCargo" />
-        </div>
-        <div class="w-3/12">
-          <app-label for="txtServidor">Ano Vigência</app-label>
-          <app-input-field type="text" id="txtServidor" />
+    <div id="content-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+      <div class="p-4 border-t border-gray-100 dark:border-gray-800 sm:p-6">
+        <div class="flex gap-3">
+          <div class="w-5/12">
+            <app-label for="txtServidor">Servidor</app-label>
+            <app-input-field type="text" id="txtServidor" />
+          </div>
+          <div class="w-4/12">
+            <app-label for="txtCargo">Cargo</app-label>
+            <app-input-field type="text" id="txtCargo" />
+          </div>
+          <div class="w-3/12">
+            <app-label for="txtServidor">Ano Vigência</app-label>
+            <app-input-field type="text" id="txtServidor" />
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 
   <!--BOTÕES-->
   <div class="rounded-md border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] mt-3">
@@ -46,7 +55,7 @@
     </div>
   </div>
 
-<!--GRID-->
+  <!--GRID-->
   <div class="rounded-md border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]  mt-3">
     <!-- Card Header -->
     <div style="padding: .5rem 1rem !important;">
@@ -57,7 +66,212 @@
 
     <!-- Card Body -->
     <div class="p-4 border-t border-gray-100 dark:border-gray-800 sm:p-6">
-      
+
+      <div class="w-full flex justify-between items-center mb-3 mt-1 pl-3">
+        <div>
+
+        </div>
+        <div class="ml-3">
+          <div class="w-full max-w-sm min-w-[200px] relative">
+            <div class="relative">
+              <input
+                class="bg-white w-full pr-11 h-10 pl-3 py-2 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded transition duration-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
+                placeholder="Search for invoice..." />
+              <button class="absolute h-8 w-8 right-1 top-1 my-auto px-2 flex items-center bg-white rounded "
+                type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                  stroke="currentColor" class="w-8 h-8 text-slate-600">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+        <table class="w-full text-left table-auto min-w-max">
+          <thead>
+            <tr>
+              <th class="p-4 border-b border-slate-200 bg-slate-50">
+                <p class="text-sm font-normal leading-none text-slate-500">
+                  Invoice Number
+                </p>
+              </th>
+              <th class="p-4 border-b border-slate-200 bg-slate-50">
+                <p class="text-sm font-normal leading-none text-slate-500">
+                  Customer
+                </p>
+              </th>
+              <th class="p-4 border-b border-slate-200 bg-slate-50">
+                <p class="text-sm font-normal leading-none text-slate-500">
+                  Amount
+                </p>
+              </th>
+              <th class="p-4 border-b border-slate-200 bg-slate-50">
+                <p class="text-sm font-normal leading-none text-slate-500">
+                  Issued
+                </p>
+              </th>
+              <th class="p-4 border-b border-slate-200 bg-slate-50">
+                <p class="text-sm font-normal leading-none text-slate-500">
+                  Due Date
+                </p>
+              </th>
+              <th class="p-4 border-b border-slate-200 bg-slate-50">
+                <p class="text-sm font-normal leading-none text-slate-500">
+                  Actions
+                </p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-slate-50 border-b border-slate-200">
+              <td class="p-4 py-5">
+                <p class="block font-semibold text-sm text-slate-800">PROJ1001</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">John Doe</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">$1,200.00</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">2024-08-01</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">2024-08-15</p>
+              </td>
+              <td class="p-4 py-5">
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50 border-b border-slate-200">
+              <td class="p-4 py-5">
+                <p class="block font-semibold text-sm text-slate-800">PROJ1002</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">Jane Smith</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">$850.00</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">2024-08-05</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">2024-08-20</p>
+              </td>
+              <td class="p-4 py-5">
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50 border-b border-slate-200">
+              <td class="p-4 py-5">
+                <p class="block font-semibold text-sm text-slate-800">PROJ1003</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">Acme Corp</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">$2,500.00</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">2024-08-07</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">2024-08-21</p>
+              </td>
+              <td class="p-4 py-5">
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50 border-b border-slate-200">
+              <td class="p-4 py-5">
+                <p class="block font-semibold text-sm text-slate-800">PROJ1004</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">Global Inc</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">$4,750.00</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">2024-08-10</p>
+              </td>
+              <td class="p-4 py-5">
+                <p class="text-sm text-slate-500">2024-08-25</p>
+              </td>
+              <td class="p-4 py-5">
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="" class="text-slate-600 hover:text-slate-800">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="flex justify-between items-center px-4 py-3">
+          <div class="text-sm text-slate-500">
+            Showing <b>1-5</b> of 45
+          </div>
+          <div class="flex space-x-1">
+            <button
+              class="px-3 py-1 min-w-9 min-h-9 text-sm font-normal text-slate-500 bg-white border border-slate-200 rounded hover:bg-slate-50 hover:border-slate-400 transition duration-200 ease">
+              Prev
+            </button>
+            <button
+              class="px-3 py-1 min-w-9 min-h-9 text-sm font-normal text-white bg-slate-800 border border-slate-800 rounded hover:bg-slate-600 hover:border-slate-600 transition duration-200 ease">
+              1
+            </button>
+            <button
+              class="px-3 py-1 min-w-9 min-h-9 text-sm font-normal text-slate-500 bg-white border border-slate-200 rounded hover:bg-slate-50 hover:border-slate-400 transition duration-200 ease">
+              2
+            </button>
+            <button
+              class="px-3 py-1 min-w-9 min-h-9 text-sm font-normal text-slate-500 bg-white border border-slate-200 rounded hover:bg-slate-50 hover:border-slate-400 transition duration-200 ease">
+              3
+            </button>
+            <button
+              class="px-3 py-1 min-w-9 min-h-9 text-sm font-normal text-slate-500 bg-white border border-slate-200 rounded hover:bg-slate-50 hover:border-slate-400 transition duration-200 ease">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
