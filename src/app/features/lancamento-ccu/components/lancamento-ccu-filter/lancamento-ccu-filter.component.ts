@@ -4,6 +4,8 @@ import { LancamentoCcuFilter } from "../../models/lancamento-ccu-filter.model";
 import { InputFieldComponent } from "../../../../shared/components/form/input/input-field.component";
 import { LabelComponent } from "../../../../shared/components/form/label/label.component";
 import { SelectComponent } from "../../../../shared/components/form/select/select.component";
+import { PageBreadcrumbComponent } from "../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component";
+import { ComponentCardComponent } from "../../../../shared/components/common/component-card/component-card.component";
 
 @Component({
   selector: "app-lancamento-ccu-filter",
@@ -13,6 +15,8 @@ import { SelectComponent } from "../../../../shared/components/form/select/selec
     InputFieldComponent,
     LabelComponent,
     SelectComponent,
+    PageBreadcrumbComponent,
+    ComponentCardComponent
   ],
   templateUrl: "./lancamento-ccu-filter.component.html",
 })
