@@ -1,0 +1,77 @@
+<div class="bg-white rounded-lg border overflow-hidden">
+  <!-- Estado vazio -->
+  @if (!loading() && rows().length === 0) {
+  <div class="py-12 text-center text-sm text-gray-400">
+    Nenhum lançamento encontrado. Use os filtros acima para pesquisar.
+  </div>
+  }
+
+  <!-- Tabela -->
+  @if (rows().length > 0) {
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead class="bg-gray-50 border-b">
+        <tr>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">
+            Data ref.
+          </th>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">Código</th>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">
+            Requisitante
+          </th>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">
+            Nº Requisição
+          </th>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">Horário</th>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">Duração</th>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">Usuário</th>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">Equipe</th>
+          <th class="text-left px-4 py-3 font-medium text-gray-600">Status</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y">
+        @for (row of rows(); track row.id) {
+        <tr class="hover:bg-gray-50 transition-colors">
+          <td class="px-4 py-3 text-gray-700">{{ row.dataReferencia }}</td>
+          <td class="px-4 py-3 font-mono text-xs text-gray-600">
+            {{ row.codigo }}
+          </td>
+          <td class="px-4 py-3 text-gray-700">{{ row.requisitante }}</td>
+          <td class="px-4 py-3 text-gray-600">{{ row.numRequisicao }}</td>
+          <td class="px-4 py-3 text-gray-600">
+            {{ row.dataInicio }} – {{ row.dataFim }}
+          </td>
+          <td class="px-4 py-3 text-gray-600">{{ row.duracaoHoras }}</td>
+          <td class="px-4 py-3">
+            <div class="text-gray-700">{{ row.usuarioNome }}</div>
+            <div class="text-xs text-gray-400">
+              Mat. {{ row.usuarioMatricula }}
+            </div>
+          </td>
+          <td class="px-4 py-3 text-gray-600">{{ row.equipeNome }}</td>
+          <td class="px-4 py-3">
+            <span
+              [class]="statusClass(row.statusId)"
+              class="px-2 py-1 rounded-full text-xs font-medium"
+            >
+              {{ row.status }}
+            </span>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="px-4 py-3 border-t text-xs text-gray-400">
+    {{ rows().length }} registro(s) encontrado(s)
+  </div>
+  }
+
+  <!-- Loading overlay -->
+  @if (loading()) {
+  <div class="py-12 text-center text-sm text-gray-400 animate-pulse">
+    Carregando...
+  </div>
+  }
+</div>

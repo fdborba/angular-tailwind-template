@@ -1,0 +1,42 @@
+<div class="bg-white rounded-lg border p-4">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="flex flex-col gap-1">
+      <app-label for="txtCodigo">Código</app-label>
+      <app-input-field
+        type="text"
+        id="txtCodigo"
+        [value]="filtros().codigo ?? ''"
+        (valueChange)="atualizarFiltro('codigo', $event.toString())"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <app-label for="ddlStatus">Status</app-label>
+      <app-select
+        id="ddlStatus"
+        [options]="statusArray"
+        placeholder="Selecione um status"
+        (valueChange)="atualizarFiltro('statusId', +$event)"
+      ></app-select>
+    </div>
+  </div>
+
+  <!-- Botões -->
+  <div class="flex gap-3 mt-4 justify-end">
+    <button
+      type="button"
+      (click)="onLimpar()"
+      [disabled]="loading()"
+      class="px-4 py-2 text-sm border rounded text-gray-600 hover:bg-gray-50 disabled:opacity-50"
+    >
+      Limpar
+    </button>
+    <button
+      type="button"
+      (click)="onPesquisar()"
+      [disabled]="loading()"
+      class="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 flex items-center gap-2"
+    >
+      @if (loading()) { <span class="animate-spin">⟳</span> } Pesquisar
+    </button>
+  </div>
+</div>

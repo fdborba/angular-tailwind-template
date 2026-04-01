@@ -1,0 +1,19 @@
+<div class="p-6 space-y-4 max-w-screen-xl mx-auto">
+  <h1 class="text-xl font-medium text-gray-800">Lançamentos CCU</h1>
+
+  <app-lancamento-ccu-filter
+    [loading]="store.loading()"
+    (pesquisar)="onPesquisar($event)"
+    (limpar)="store.limpar()"
+  />
+
+  <app-lancamento-ccu-table [rows]="store.rows()" [loading]="store.loading()" />
+
+  @if (store.erro()) {
+  <div
+    class="text-sm text-red-600 bg-red-50 border border-red-200 rounded px-4 py-3"
+  >
+    {{ store.erro() }}
+  </div>
+  }
+</div>
