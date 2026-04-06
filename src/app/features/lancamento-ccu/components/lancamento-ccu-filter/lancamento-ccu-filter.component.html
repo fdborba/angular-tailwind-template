@@ -1,54 +1,37 @@
-<div>
-  <app-page-breadcrumb pageTitle="Lançamento CCU" />
-  <div class="grid grid-cols-1">
-    <app-component-card title="Filtro de Pesquisa">
-      <div class="grid grid-cols-6 gap-3">
-        <div class="col-span-5">
-          <app-label for="txtCodigo">Código</app-label>
-          <app-input-field
-            type="text"
-            id="txtCodigo"
-            [value]="filtros().codigo ?? ''"
-            (valueChange)="atualizarFiltro('codigo', $event.toString())"
-          />
-        </div>
-        <div>
-          <app-label for="ddlStatus">Status</app-label>
-          <app-select
-            id="ddlStatus"
-            [options]="statusArray"
-            placeholder="Selecione um status"
-            (valueChange)="atualizarFiltro('statusId', +$event)"
-          ></app-select>
-        </div>
-      </div>
-    </app-component-card>
+<app-component-card title="Filtro de Pesquisa">
+  <div class="grid grid-cols-4 gap-3">
+    <div class="col-span-3">
+      <app-label for="txtCodigo">Código</app-label>
+      <app-input-field
+        type="text"
+        id="txtCodigo"
+        [value]="filtros().codigo ?? ''"
+        (valueChange)="atualizarFiltro('codigo', $event.toString())"
+      />
+    </div>
+    <div class="col-span-1">
+      <app-label for="ddlStatus">Status</app-label>
+      <app-select
+        id="ddlStatus"
+        [options]="statusArray"
+        placeholder="Selecione um status"
+        [value]="filtros().status?.toString() ?? ''"
+        (valueChange)="atualizarFiltro('status', $event ? +$event : null)"
+      ></app-select>
+    </div>
   </div>
-  <div class="grid grid-cols-1 mt-2">
-    <!-- <app-barra-botoes>
-      <div class="flex justify-end gap-3">
-        <div class="w-auto">
-          <app-button size="sm" (btnClick)="handleSave()">
-            Pesquisar
-          </app-button>
-          <button
-            type="button"
-            (click)="onLimpar()"
-            [disabled]="loading()"
-            class="px-4 py-2 text-sm border rounded text-gray-600 hover:bg-gray-50 disabled:opacity-50"
-          >
-            Limpar
-          </button>
-          <button
-            type="button"
-            (click)="onPesquisar()"
-            [disabled]="loading()"
-            class="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 flex items-center gap-2"
-          >
-            @if (loading()) { <span class="animate-spin">⟳</span> } Pesquisar
-          </button>
-        </div>
-      </div>
-    </app-barra-botoes> -->
-  </div>
-</div>
+</app-component-card>
+<app-barra-botoes>
+  <app-button
+    size="sm"
+    variant="outline"
+    (btnClick)="onLimpar()"
+    [disabled]="loading()"
+  >
+    <i class="fas fa-eraser"></i> Limpar
+  </app-button>
+  <app-button size="sm" (btnClick)="onPesquisar()" [disabled]="loading()">
+    @if (loading()) { <span class="animate-spin">⟳</span> }
+    <i class="fas fa-search"></i> Pesquisar
+  </app-button>
+</app-barra-botoes>

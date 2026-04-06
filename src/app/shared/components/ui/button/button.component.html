@@ -1,7 +1,7 @@
 <button
   type="button"
   [ngClass]="
-    'inline-flex items-center justify-center gap-2 rounded-lg transition ' +
+    'rounded-md text-center transition-all shadow-md hover:shadow-lg focus:shadow-none active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2' +
     className + ' ' +
     sizeClasses + ' ' +
     variantClasses + ' ' +
@@ -12,7 +12,7 @@
 >
   @if (startIcon) {
   <span class="flex items-center" [innerHTML]="startIcon | safeHtml"></span>
-  }
+  } 
   <ng-content></ng-content>
   @if (endIcon) {
   <span class="flex items-center" [innerHTML]="endIcon | safeHtml"></span>

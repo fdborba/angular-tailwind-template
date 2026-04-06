@@ -3,11 +3,16 @@ import { LancamentoCcuStore } from "../store/lancamento-ccu.store";
 import { LancamentoCcuFilterComponent } from "../components/lancamento-ccu-filter/lancamento-ccu-filter.component";
 import { LancamentoCcuTableComponent } from "../components/lancamento-ccu-table/lancamento-ccu-table.component";
 import { LancamentoCcuFilter } from "../models/lancamento-ccu-filter.model";
+import { PageBreadcrumbComponent } from "../../../shared/components/common/page-breadcrumb/page-breadcrumb.component";
 
 @Component({
   selector: "app-lancamento-ccu-list",
   standalone: true,
-  imports: [LancamentoCcuFilterComponent, LancamentoCcuTableComponent],
+  imports: [
+    LancamentoCcuFilterComponent,
+    LancamentoCcuTableComponent,
+    PageBreadcrumbComponent,
+  ],
   templateUrl: "./lancamento-ccu-list.page.html",
 })
 export class LancamentoCcuListPage {

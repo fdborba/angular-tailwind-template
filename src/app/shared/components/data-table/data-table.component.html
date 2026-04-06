@@ -1,0 +1,55 @@
+<div class="bg-white rounded-lg border overflow-hidden">
+
+  @if (!loading() && rows().length === 0) {
+    <div class="py-12 text-center text-sm text-gray-400">
+      {{ emptyMessage() }}
+    </div>
+  }
+
+  @if (rows().length > 0) {
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead class="bg-gray-50 border-b">
+          <tr>
+            @for (col of columns(); track col.key) {
+              <th class="text-left px-4 py-3 font-medium text-gray-600"
+                  [class]="col.width ?? ''">
+                {{ col.label }}
+              </th>
+            }
+          </tr>
+        </thead>
+        <tbody class="divide-y">
+          @for (row of rows(); track row['id']) {
+            <tr class="hover:bg-gray-50 transition-colors">
+              @for (col of columns(); track col.key) {
+                <td class="px-4 py-3 text-gray-700" [class]="col.cssClass ?? ''">
+                  @if (getTemplate(col.key); as tmpl) {
+                    <ng-container
+                      [ngTemplateOutlet]="tmpl"
+                      [ngTemplateOutletContext]="{ $implicit: row }"
+                    />
+                  } @else {
+                    {{ getValue(row, col.key) }}
+                  }
+
+                </td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="px-4 py-3 border-t text-xs text-gray-400">
+      {{ rows().length }} registro(s) encontrado(s)
+    </div>
+  }
+
+  @if (loading()) {
+    <div class="py-12 text-center text-sm text-gray-400 animate-pulse">
+      Carregando...
+    </div>
+  }
+
+</div>
