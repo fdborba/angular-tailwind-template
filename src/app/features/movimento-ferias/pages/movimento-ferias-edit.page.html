@@ -1,0 +1,100 @@
+<div>
+
+  <app-page-breadcrumb pageTitle="Editar Movimento de Férias" />
+
+  <!-- Loading -->
+  @if (store.loading()) {
+    <div class="py-12 text-center text-sm text-gray-400 animate-pulse">
+      Carregando...
+    </div>
+  }
+
+  <!-- Erro -->
+  @if (store.erro()) {
+    <div class="text-sm text-red-600 bg-red-50 border border-red-200 rounded px-4 py-3">
+      {{ store.erro() }}
+    </div>
+  }
+
+  <!-- Detalhe -->
+  @if (!store.loading()) {
+    <div class="bg-white rounded-lg border p-6 space-y-4">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        <div class="flex flex-col gap-1">
+          <app-label>Matrícula</app-label>
+          <app-input-field [value]="store.detalheFormatado().matricula" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Exercício</app-label>
+          <app-input-field [value]="store.detalheFormatado().exercicio" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Dias</app-label>
+          <app-input-field [value]="store.detalheFormatado().dias" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Data Início</app-label>
+          <app-input-field [value]="store.detalheFormatado().dataIni" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Data Fim</app-label>
+          <app-input-field [value]="store.detalheFormatado().dataFim" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Tipo</app-label>
+          <app-input-field [value]="store.detalheFormatado().tipo" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Adiantamento</app-label>
+          <app-input-field [value]="store.detalheFormatado().adiantamento" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Abono Pecuniário</app-label>
+          <app-input-field [value]="store.detalheFormatado().abonoPecuniario" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Grat. Natalina</app-label>
+          <app-input-field [value]="store.detalheFormatado().gratificacaoNatalina" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Usuário</app-label>
+          <app-input-field [value]="store.detalheFormatado().usuario" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Data Movimento</app-label>
+          <app-input-field [value]="store.detalheFormatado().dataMovimento" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Atualização</app-label>
+          <app-input-field [value]="store.detalheFormatado().dataAtualizacao" [disabled]="true" />
+        </div>
+
+      </div>
+
+      <!-- Botões -->
+      <div class="flex justify-end gap-3 pt-4 border-t">
+        <button
+          type="button"
+          (click)="onVoltar()"
+          class="px-4 py-2 text-sm border rounded text-gray-600 hover:bg-gray-50">
+          Voltar
+        </button>
+      </div>
+
+    </div>
+  }
+
+</div>

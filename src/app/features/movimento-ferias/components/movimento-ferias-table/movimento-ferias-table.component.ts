@@ -1,12 +1,13 @@
-import { Component, input } from '@angular/core';
-import { DataTableComponent } from '../../../../shared/components/data-table/data-table.component';
+import { Component, input, output } from '@angular/core';
+import { DataTableComponent, TableCellDirective } from '../../../../shared/components/data-table/data-table.component';
 import { TableColumn } from '../../../../shared/components/data-table/data-table.model';
 import { MovimentoFeriasRow } from '../../store/movimento-ferias.store';
+import { ButtonComponent } from "../../../../shared/components/ui/button/button.component";
 
 @Component({
   selector: 'app-movimento-ferias-table',
   standalone: true,
-  imports: [DataTableComponent],
+  imports: [DataTableComponent, TableCellDirective , ButtonComponent],
   templateUrl: './movimento-ferias-table.component.html',
 })
 export class MovimentoFeriasTableComponent {
@@ -27,5 +28,8 @@ export class MovimentoFeriasTableComponent {
     { key: 'dataMovimento',        label: 'Data Movimento'    },
     { key: 'usuario',              label: 'Usuário'           },
     { key: 'dataAtualizacao',      label: 'Atualização'       },
+    { key: 'acoes',                label: 'Ações',  width: 'w-20'   },
   ];
+
+  editar = output<MovimentoFeriasRow>();
 }

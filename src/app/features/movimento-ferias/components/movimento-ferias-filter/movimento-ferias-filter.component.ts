@@ -1,10 +1,18 @@
-import { Component, computed, input, output, signal } from "@angular/core";
+import {
+  Component,
+  computed,
+  inject,
+  input,
+  output,
+  signal,
+} from "@angular/core";
 import { MovimentoFeriasFilter } from "../../models/movimento-ferias-filter.model";
 import { ComponentCardComponent } from "../../../../shared/components/common/component-card/component-card.component";
 import { LabelComponent } from "../../../../shared/components/form/label/label.component";
 import { InputFieldComponent } from "../../../../shared/components/form/input/input-field.component";
 import { BarraBotoesComponent } from "../../../../shared/components/common/barra-botoes/barra-botoes.component";
 import { ButtonComponent } from "../../../../shared/components/ui/button/button.component";
+import { MovimentoFeriasStore } from "../../store/movimento-ferias.store";
 
 @Component({
   selector: "app-movimento-ferias-filter",
@@ -19,6 +27,7 @@ import { ButtonComponent } from "../../../../shared/components/ui/button/button.
   ],
 })
 export class MovimentoFeriasFilterComponent {
+  private store = inject(MovimentoFeriasStore);
   loading = input<boolean>(false);
   tentouPesquisar = signal(false);
   selecionar = output<MovimentoFeriasFilter>();
@@ -57,5 +66,18 @@ export class MovimentoFeriasFilterComponent {
       removerMovsSemEfeito: true,
     });
     this.limpar.emit();
+  }
+
+  ngOnInit(): void {
+    const filtrosAtivos = this.store.filtrosAtivos();
+
+    if (filtrosAtivos && Object.keys(filtrosAtivos).length > 0) {
+      this.filtros.set({
+        empresa: 1,
+        filial: 1,
+        removerMovsSemEfeito: true,
+        ...filtrosAtivos,
+      } as MovimentoFeriasFilter);
+    }
   }
 }

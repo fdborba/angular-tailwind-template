@@ -3,4 +3,10 @@
   [rows]="rows()"
   [loading]="loading()"
   emptyMessage="Nenhum movimento encontrado para os filtros utilizados."
-></app-data-table>
+>
+  <ng-template appTableCell="acoes" let-row>
+    <app-button size="sm" variant="outline" (btnClick)="editar.emit(row)">
+      <i class="fas fa-edit"></i>
+    </app-button>
+  </ng-template>
+</app-data-table>

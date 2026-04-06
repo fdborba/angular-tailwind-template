@@ -1,5 +1,5 @@
 <div>
-  <app-page-breadcrumb pageTitle="Movimento de Férias" />
+  <app-page-breadcrumb pageTitle="Movimento Férias" />
 
   <app-movimento-ferias-filter
     [loading]="store.loading()"
@@ -7,7 +7,11 @@
     (limpar)="store.limpar()"
   />
 
-  <app-movimento-ferias-table [rows]="store.rows()" [loading]="store.loading()" />
+  <app-movimento-ferias-table
+    [rows]="store.rows()"
+    [loading]="store.loading()"
+    (editar)="onEditar($event)"
+  />
 
   <app-paginacao
     [paginaAtual]="store.paginaAtual()"
@@ -16,13 +20,11 @@
     [pageSize]="store.pagination()?.pageSize ?? 10"
     [loading]="store.loading()"
     (paginaMudou)="store.irParaPagina($event)"
-  /> 
-
+  />
+ 
   @if (store.erro()) {
-  <div
-    class="text-sm text-red-600 bg-red-50 border border-red-200 rounded px-4 py-3"
-  >
-    {{ store.erro() }}
-  </div>
-  } 
+    <div class="text-sm text-red-600 bg-red-50 border border-red-200 rounded px-4 py-3">
+      {{ store.erro() }}
+    </div>
+  }
 </div>

@@ -30,6 +30,10 @@ export interface MovimentoFeriasRow {
   dataAtualizacao: string;
   perAquisitIni: string;
   perAquisitFim: string;
+  idMovimento: string;
+  empresa: number;
+  filial: number;
+  movimento: string;
 }
 
 interface MovimentoFeriasState {
@@ -72,6 +76,10 @@ export const MovimentoFeriasStore = signalStore(
           dataAtualizacao: formatarData(m.dataAtualizacao),
           perAquisitIni: formatarData(m.perAquisitIni),
           perAquisitFim: formatarData(m.perAquisitFim),
+          idMovimento: m.idMovimento,
+          empresa: m.empresa,
+          filial: m.filial,
+          movimento: m.movimento ? m.movimento.toISOString() : "",
         }),
       ),
     ),

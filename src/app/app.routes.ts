@@ -21,6 +21,7 @@ import { CalenderComponent } from './pages/calender/calender.component';
 import { MpsComponent } from './pages/mps/mps.component';
 import { LancamentoCcuListPage } from './features/lancamento-ccu/pages/lancamento-ccu-list.page';
 import { MovimentoFeriasListPage } from './features/movimento-ferias/pages/movimento-ferias-list.page';
+import { MovimentoFeriasEditPage } from './features/movimento-ferias/pages/movimento-ferias-edit.page';
 
 export const routes: Routes = [
   {
@@ -33,9 +34,14 @@ export const routes: Routes = [
         title:'Lançamento CCU'
       },
       {
-        path:'movimentoFerias',
-        component:MovimentoFeriasListPage,
-        title:'Movimento de Férias'
+        path: "movimentoFerias",
+        component: MovimentoFeriasListPage,
+        title: "Movimento de Férias",
+      },
+      {
+        path: "movimentoFerias/:id/editar",
+        component: MovimentoFeriasEditPage,
+        title: "Detalhes - Movimento de Férias",
       },
       {
         path: '',
