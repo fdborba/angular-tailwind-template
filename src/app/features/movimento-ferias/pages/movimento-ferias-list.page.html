@@ -1,0 +1,28 @@
+<div>
+  <app-page-breadcrumb pageTitle="Movimento de Férias" />
+
+  <app-movimento-ferias-filter
+    [loading]="store.loading()"
+    (selecionar)="onSelecionar($event)"
+    (limpar)="store.limpar()"
+  />
+
+  <app-movimento-ferias-table [rows]="store.rows()" [loading]="store.loading()" />
+
+  <app-paginacao
+    [paginaAtual]="store.paginaAtual()"
+    [totalPaginas]="store.totalPaginas()"
+    [totalElements]="store.totalRegistros()"
+    [pageSize]="store.pagination()?.pageSize ?? 10"
+    [loading]="store.loading()"
+    (paginaMudou)="store.irParaPagina($event)"
+  /> 
+
+  @if (store.erro()) {
+  <div
+    class="text-sm text-red-600 bg-red-50 border border-red-200 rounded px-4 py-3"
+  >
+    {{ store.erro() }}
+  </div>
+  } 
+</div>

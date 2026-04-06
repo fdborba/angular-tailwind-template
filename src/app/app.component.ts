@@ -17,9 +17,13 @@ export class AppComponent implements OnInit {
   private authService = inject(AuthService);
 
   async ngOnInit(): Promise<void> {
-    await this.authService.login({
-      Usuario: 'mpsinteg_smax',
-      Senha:   'SMax9517539@!',
-    });
-  }
+  await this.authService.login({
+    identificador: '0dcbd330-cdfe-4282-8ce1-260bd19a1a36',
+    login:         'shfdelphi',
+    password:      'kwD+SmFrMCk6HI7YUtbwBM5QpSnGYmWB',
+    usuarioLog:    '8888888',
+    usuarioTipos:  [3],
+    usuarioRoles:  ['MPS_Analistas'],
+  });
+}
 }

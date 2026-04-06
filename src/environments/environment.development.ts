@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl:  'https://uat.tjsp.jus.br/RHF/MPS_OrdemServicoAPI',
+  apiUrl:  'https://dev.tjsp.jus.br/RHF/SHFAPI',
+  authUrl:  'https://dev.tjsp.jus.br/RHF/AutenticacaoTJSPAPI',
 };

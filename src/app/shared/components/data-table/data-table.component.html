@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody class="divide-y">
-          @for (row of rows(); track row['id']) {
+          @for (row of rows(); track $index) {
             <tr class="hover:bg-gray-50 transition-colors">
               @for (col of columns(); track col.key) {
                 <td class="px-4 py-3 text-gray-700" [class]="col.cssClass ?? ''">

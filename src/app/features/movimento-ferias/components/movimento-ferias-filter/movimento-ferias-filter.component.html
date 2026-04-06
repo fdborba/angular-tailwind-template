@@ -1,0 +1,32 @@
+<app-component-card title="Filtro de Pesquisa">
+  <div class="grid grid-cols-4 gap-3">
+    <div class="col-span-3">
+      <app-label for="txtMatricula">Matrícula *</app-label>
+      <app-input-field
+        type="number"
+        id="txtMatricula"
+        placeholder="Digite a matrícula"
+        [value]="filtros().matricula || ''"
+        [error]="matriculaInvalida() && tentouPesquisar()"
+        hint="Matrícula é obrigatória"
+        (valueChange)="atualizarFiltro('matricula', +$event)"
+      />
+    </div>
+  </div>
+</app-component-card>
+<app-barra-botoes>
+  <app-button
+    size="sm"
+    variant="outline"
+    (btnClick)="onLimpar()"
+    [disabled]="loading()"
+  >
+    <i class="fas fa-eraser"></i> Limpar
+  </app-button>
+  <app-button size="sm" (btnClick)="onSelecionar()" [disabled]="loading()">
+    @if (loading()) {
+      <span class="animate-spin">⟳</span>
+    }
+    <i class="fas fa-search"></i> Pesquisar
+  </app-button>
+</app-barra-botoes>

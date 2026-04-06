@@ -20,7 +20,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         (input)="onInput($event)"
       />
 
-      @if (hint) {
+      @if (hint && (error || success)) {
       <p class="mt-1.5 text-xs"
         [ngClass]="{
           'text-error-500': error,

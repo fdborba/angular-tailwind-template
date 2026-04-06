@@ -1,0 +1,58 @@
+@if (totalPaginas() > 1) {
+<div class="flex items-center justify-between px-4 py-3 border-t text-sm text-gray-600">
+
+  <!-- Info -->
+  <span class="text-xs text-gray-400">
+    {{ totalElements() }} registro(s) — página {{ paginaAtual() }} de {{ totalPaginas() }}
+  </span>
+
+  <!-- Controles -->
+  <div class="flex items-center gap-1">
+
+    <!-- Primeira -->
+    <button
+      (click)="irPara(1)"
+      [disabled]="paginaAtual() === 1 || loading()"
+      class="px-2 py-1 rounded text-gray-500 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed">
+      «
+    </button>
+
+    <!-- Anterior -->
+    <button
+      (click)="irPara(paginaAtual() - 1)"
+      [disabled]="paginaAtual() === 1 || loading()"
+      class="px-2 py-1 rounded text-gray-500 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed">
+      ‹
+    </button>
+
+    <!-- Páginas -->
+    @for (pagina of paginas(); track pagina) {
+      <button
+        (click)="irPara(pagina)"
+        [disabled]="loading()"
+        [class]="pagina === paginaAtual()
+          ? 'px-3 py-1 rounded bg-blue-600 text-white font-medium'
+          : 'px-3 py-1 rounded text-gray-600 hover:bg-gray-100 disabled:opacity-40'">
+        {{ pagina }}
+      </button>
+    }
+
+    <!-- Próxima -->
+    <button
+      (click)="irPara(paginaAtual() + 1)"
+      [disabled]="paginaAtual() === totalPaginas() || loading()"
+      class="px-2 py-1 rounded text-gray-500 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed">
+      ›
+    </button>
+
+    <!-- Última -->
+    <button
+      (click)="irPara(totalPaginas())"
+      [disabled]="paginaAtual() === totalPaginas() || loading()"
+      class="px-2 py-1 rounded text-gray-500 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed">
+      »
+    </button>
+
+  </div>
+</div>
+}

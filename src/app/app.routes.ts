@@ -20,6 +20,7 @@ import { SignUpComponent } from './pages/auth-pages/sign-up/sign-up.component';
 import { CalenderComponent } from './pages/calender/calender.component';
 import { MpsComponent } from './pages/mps/mps.component';
 import { LancamentoCcuListPage } from './features/lancamento-ccu/pages/lancamento-ccu-list.page';
+import { MovimentoFeriasListPage } from './features/movimento-ferias/pages/movimento-ferias-list.page';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,11 @@ export const routes: Routes = [
         path:'lancamentoCcu',
         component:LancamentoCcuListPage,
         title:'Lançamento CCU'
+      },
+      {
+        path:'movimentoFerias',
+        component:MovimentoFeriasListPage,
+        title:'Movimento de Férias'
       },
       {
         path: '',
