@@ -24,9 +24,6 @@
     <i class="fas fa-eraser"></i> Limpar
   </app-button>
   <app-button size="sm" (btnClick)="onSelecionar()" [disabled]="loading()">
-    @if (loading()) {
-      <span class="animate-spin">⟳</span>
-    }
     <i class="fas fa-search"></i> Pesquisar
   </app-button>
 </app-barra-botoes>

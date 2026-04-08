@@ -1,11 +1,4 @@
-import {
-  Component,
-  computed,
-  inject,
-  input,
-  output,
-  signal,
-} from "@angular/core";
+import { Component, computed, inject, input, output, signal} from "@angular/core";
 import { MovimentoFeriasFilter } from "../../models/movimento-ferias-filter.model";
 import { ComponentCardComponent } from "../../../../shared/components/common/component-card/component-card.component";
 import { LabelComponent } from "../../../../shared/components/form/label/label.component";

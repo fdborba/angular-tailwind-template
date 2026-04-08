@@ -79,13 +79,11 @@ export const MovimentoFeriasStore = signalStore(
           idMovimento: m.idMovimento,
           empresa: m.empresa,
           filial: m.filial,
-          movimento: m.movimento ? m.movimento.toISOString() : "",
+          movimento: m.movimento ? formatarDataISO(m.movimento) : '',
         }),
       ),
     ),
-    totalRegistros: computed(
-      (): number => store.pagination()?.totalElements ?? 0, // ← usa o total real da API
-    ),
+    totalRegistros: computed((): number => store.pagination()?.totalElements ?? 0),
     paginaAtual: computed((): number => store.pagination()?.page ?? 1),
     totalPaginas: computed((): number => store.pagination()?.totalPages ?? 0),
   })),
@@ -145,4 +143,18 @@ export const MovimentoFeriasStore = signalStore(
 function formatarData(data: Date | null): string {
   if (!data) return "—";
   return data.toLocaleDateString("pt-BR");
+}
+
+function formatarDataISO(data: Date): string {
+  const pad = (n: number, size = 2) => String(n).padStart(size, '0');
+
+  const ano    = data.getFullYear();
+  const mes    = pad(data.getMonth() + 1);
+  const dia    = pad(data.getDate());
+  const hora   = pad(data.getHours());
+  const min    = pad(data.getMinutes());
+  const seg    = pad(data.getSeconds());
+  const ms     = pad(data.getMilliseconds(), 3);
+
+  return `${ano}-${mes}-${dia} ${hora}:${min}:${seg}.${ms}`;
 }

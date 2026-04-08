@@ -29,33 +29,52 @@ export const MovimentoFeriasEditStore = signalStore(
   withState<MovimentoFeriasEditState>(estadoInicial),
 
   withComputed((store) => ({
-  detalheFormatado: computed(() => {
-    const d = store.detalhe();
-
-    return {
-      id:                   d?.id                    ?? 0,
-      idMovimento:          d?.idMovimento            ?? '—',
-      empresa:              d?.empresa               ?? 0,
-      filial:               d?.filial                ?? 0,
-      matricula:            d?.matricula             ?? 0,
-      exercicio:            d?.exercicio             ?? 0,
-      dias:                 d?.dias                  ?? 0,
-      tipo:                 d?.tipo                  ?? '—',
-      adiantamento:         d?.adiantamento          ?? '—',
-      gratificacaoNatalina: d?.gratificacaoNatalina  ?? '—',
-      abonoPecuniario:      d?.abonoPecuniario       ?? '—',
-      usuario:              d?.usuario               ?? '—',
-      nomeParente:          d?.nomeParente           ?? '—',
-      texto:                d?.texto                 ?? '—',
-      dataIni:              formatarData(d?.dataIni          ?? null),
-      dataFim:              formatarData(d?.dataFim          ?? null),
-      dataMovimento:        formatarData(d?.dataMovimento    ?? null),
-      dataAtualizacao:      formatarData(d?.dataAtualizacao  ?? null),
-      dataProtocolo:        formatarData(d?.dataProtocolo    ?? null),
-      expedientePublicacao: d?.expedientePublicacao  ?? [],
-    };
-  }),
-})),
+    detalheFormatado: computed(() => {
+      const d = store.detalhe();
+      return {
+        //identificacao
+        id: d?.id ?? 0,
+        idMovimento: d?.idMovimento ?? "—",
+        empresa: d?.empresa ?? 0,
+        filial: d?.filial ?? 0,
+        matricula: d?.matricula ?? 0,
+        empresaSHFCod: d?.empresaSHFCod ?? 0,
+        sitFuncCod: d?.sitFuncCod ?? 0,
+        // Período
+        exercicio: d?.exercicio ?? 0,
+        dias: d?.dias ?? 0,
+        naturezaFeriasCod: d?.naturezaFeriasCod ?? 0,
+        tipoPeriodoFeriasCod: d?.tipoPeriodoFeriasCod ?? 0,
+        fundLegalCod: d?.fundLegalCod ?? 0,
+        perAquisitIni: d?.perAquisitIni ?? 0,
+        perAquisitFim: d?.perAquisitFim ?? 0,
+        //flags
+        tipo: d?.tipo ?? "—",
+        adiantamento: d?.adiantamento ?? "—",
+        gratificacaoNatalina: d?.gratificacaoNatalina ?? "—",
+        abonoPecuniario: d?.abonoPecuniario ?? "—",
+        alteracao: d?.alteracao ?? false,
+        dispOpLaba: d?.dispOpLaba ?? false,
+        //outros
+        numeroPedido: d?.numeroPedido ?? "—",
+        sequencial: d?.sequencial ?? "—",
+        sistemaIntegracaoCod: d?.sistemaIntegracaoCod ?? 0,
+        grauDependenciaCod: d?.grauDependenciaCod ?? 0,
+        nomeParente: d?.nomeParente ?? "—",
+        texto: d?.texto?.trim() ?? "—",
+        usuario: d?.usuario ?? "—",
+        //datas
+        dataIni: formatarData(d?.dataIni ?? null),
+        dataFim: formatarData(d?.dataFim ?? null),
+        dataProtocolo: formatarData(d?.dataProtocolo ?? null),
+        movimento: formatarData(d?.movimento ?? null),
+        dataMovimento: formatarData(d?.dataMovimento ?? null),
+        dataAtualizacao: formatarData(d?.dataAtualizacao ?? null),
+        //expediente
+        expedientePublicacao: d?.expedientePublicacao ?? [],
+      };
+    }),
+  })),
 
   withMethods((store, service = inject(MovimentoFeriasService)) => ({
     async obter(row: MovimentoFeriasRow): Promise<void> {
@@ -72,7 +91,6 @@ export const MovimentoFeriasEditStore = signalStore(
                 filial: row.filial,
                 matricula: row.matricula,
                 movimento: row.movimento,
-                idMovimento: row.idMovimento,
               })
             : service.obter(row.idMovimento),
         );

@@ -2,30 +2,69 @@
 
   <app-page-breadcrumb pageTitle="Editar Movimento de Férias" />
 
-  <!-- Loading -->
   @if (store.loading()) {
     <div class="py-12 text-center text-sm text-gray-400 animate-pulse">
       Carregando...
     </div>
   }
 
-  <!-- Erro -->
   @if (store.erro()) {
     <div class="text-sm text-red-600 bg-red-50 border border-red-200 rounded px-4 py-3">
       {{ store.erro() }}
     </div>
   }
 
-  <!-- Detalhe -->
   @if (!store.loading()) {
     <div class="bg-white rounded-lg border p-6 space-y-4">
+      <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Identificação</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="flex flex-col gap-1">
+          <app-label>ID</app-label>
+          <app-input-field [value]="store.detalheFormatado().id" [disabled]="true" />
+        </div>
 
         <div class="flex flex-col gap-1">
           <app-label>Matrícula</app-label>
           <app-input-field [value]="store.detalheFormatado().matricula" [disabled]="true" />
         </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Empresa</app-label>
+          <app-input-field [value]="store.detalheFormatado().empresa" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Filial</app-label>
+          <app-input-field [value]="store.detalheFormatado().filial" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Empresa SHF</app-label>
+          <app-input-field [value]="store.detalheFormatado().empresaSHFCod" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Sit. Funcional</app-label>
+          <app-input-field [value]="store.detalheFormatado().sitFuncCod" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Número Pedido</app-label>
+          <app-input-field [value]="store.detalheFormatado().numeroPedido" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>ID Movimento</app-label>
+          <app-input-field [value]="store.detalheFormatado().idMovimento" [disabled]="true" />
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg border p-6 space-y-4">
+      <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Período de Férias</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 
         <div class="flex flex-col gap-1">
           <app-label>Exercício</app-label>
@@ -48,6 +87,38 @@
         </div>
 
         <div class="flex flex-col gap-1">
+          <app-label>Per. Aquisitivo Início</app-label>
+          <app-input-field [value]="store.detalheFormatado().perAquisitIni" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Per. Aquisitivo Fim</app-label>
+          <app-input-field [value]="store.detalheFormatado().perAquisitFim" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Natureza Férias</app-label>
+          <app-input-field [value]="store.detalheFormatado().naturezaFeriasCod" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Tipo Período</app-label>
+          <app-input-field [value]="store.detalheFormatado().tipoPeriodoFeriasCod" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Fund. Legal</app-label>
+          <app-input-field [value]="store.detalheFormatado().fundLegalCod" [disabled]="true" />
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg border p-6 space-y-4">
+      <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Complemento</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+        <div class="flex flex-col gap-1">
           <app-label>Tipo</app-label>
           <app-input-field [value]="store.detalheFormatado().tipo" [disabled]="true" />
         </div>
@@ -68,8 +139,55 @@
         </div>
 
         <div class="flex flex-col gap-1">
+          <app-label>Alteração</app-label>
+          <app-input-field [value]="store.detalheFormatado().alteracao ? 'Sim' : 'Não'" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Disp. Op. LABA</app-label>
+          <app-input-field [value]="store.detalheFormatado().dispOpLaba ? 'Sim' : 'Não'" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Sequencial</app-label>
+          <app-input-field [value]="store.detalheFormatado().sequencial" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Grau Dependência</app-label>
+          <app-input-field [value]="store.detalheFormatado().grauDependenciaCod" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Nome Parente</app-label>
+          <app-input-field [value]="store.detalheFormatado().nomeParente" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Sistema Integração</app-label>
+          <app-input-field [value]="store.detalheFormatado().sistemaIntegracaoCod" [disabled]="true" />
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg border p-6 space-y-4">
+      <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Controle</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+        <div class="flex flex-col gap-1">
           <app-label>Usuário</app-label>
           <app-input-field [value]="store.detalheFormatado().usuario" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Data Protocolo</app-label>
+          <app-input-field [value]="store.detalheFormatado().dataProtocolo" [disabled]="true" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <app-label>Movimento</app-label>
+          <app-input-field [value]="store.detalheFormatado().movimento" [disabled]="true" />
         </div>
 
         <div class="flex flex-col gap-1">
@@ -78,22 +196,68 @@
         </div>
 
         <div class="flex flex-col gap-1">
-          <app-label>Atualização</app-label>
+          <app-label>Data Atualização</app-label>
           <app-input-field [value]="store.detalheFormatado().dataAtualizacao" [disabled]="true" />
         </div>
 
       </div>
+    </div>
 
-      <!-- Botões -->
-      <div class="flex justify-end gap-3 pt-4 border-t">
-        <button
-          type="button"
-          (click)="onVoltar()"
-          class="px-4 py-2 text-sm border rounded text-gray-600 hover:bg-gray-50">
-          Voltar
-        </button>
+    <div class="bg-white rounded-lg border p-6 space-y-4">
+      <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Observação</h2>
+      <div class="flex flex-col gap-1">
+        <app-label>Texto</app-label>
+        <textarea
+          [value]="store.detalheFormatado().texto"
+          disabled
+          rows="3"
+          class="w-full rounded-lg border px-4 py-2.5 text-sm text-gray-700 bg-gray-50 border-gray-300 resize-none opacity-70 cursor-not-allowed">
+        </textarea>
       </div>
+    </div>
 
+    @if (store.detalheFormatado().expedientePublicacao.length > 0) {
+      <div class="bg-white rounded-lg border p-6 space-y-4">
+        <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide">Expediente de Publicação</h2>
+        @for (exp of store.detalheFormatado().expedientePublicacao; track exp.codigo) {
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pb-4 border-b last:border-0 last:pb-0">
+
+            <div class="flex flex-col gap-1">
+              <app-label>Código</app-label>
+              <app-input-field [value]="exp.codigo" [disabled]="true" />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <app-label>Cód. Apenso</app-label>
+              <app-input-field [value]="exp.codApenso ?? '—'" [disabled]="true" />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <app-label>Usuário</app-label>
+              <app-input-field [value]="exp.usuario ?? '—'" [disabled]="true" />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <app-label>Data Atualização</app-label>
+              <app-input-field [value]="exp.dataAtualizacao ? exp.dataAtualizacao.toLocaleDateString('pt-BR') : '—'" [disabled]="true" />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <app-label>Observação</app-label>
+              <app-input-field [value]="exp.observacao ?? '—'" [disabled]="true" />
+            </div>
+
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Botões -->
+    <div class="flex justify-end gap-3">
+      <button type="button" (click)="onVoltar()"
+        class="px-4 py-2 text-sm border rounded text-gray-600 hover:bg-gray-50">
+        Voltar
+      </button>
     </div>
   }
 

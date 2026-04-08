@@ -72,5 +72,4 @@ export interface MovimentoFeriasIdCompostoFilter {
   filial:      number;
   matricula:   number;
   movimento:   string;
-  idMovimento: string;
 }
