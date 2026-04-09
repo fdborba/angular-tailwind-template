@@ -1,8 +1,8 @@
 
 import { Component } from '@angular/core';
 import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
-import { LabelComponent } from '../../label/label.component';
-import { FileInputComponent } from '../../input/file-input.component';
+import { LabelComponent } from '../../../genericos/label/label.component';
+import { FileInputComponent } from '../../../genericos/file-input/file-input.component';
 
 @Component({
   selector: 'app-file-input-example',

@@ -1,8 +1,8 @@
 
 import { Component } from '@angular/core';
 import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
-import { InputFieldComponent } from '../../input/input-field.component';
-import { LabelComponent } from '../../label/label.component';
+import { InputFieldComponent } from '../../../genericos/input/input-field.component';
+import { LabelComponent } from '../../../genericos/label/label.component';
 
 @Component({
   selector: 'app-input-states',

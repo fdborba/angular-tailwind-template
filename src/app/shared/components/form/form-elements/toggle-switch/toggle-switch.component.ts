@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SwitchComponent } from '../../input/switch.component';
+import { SwitchComponent } from '../../../genericos/switch/switch.component';
 import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
 
 @Component({

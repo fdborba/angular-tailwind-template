@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { InputFieldComponent } from '../../../form/input/input-field.component';
-import { LabelComponent } from '../../../form/label/label.component';
+import { InputFieldComponent } from '../../../genericos/input/input-field.component';
+import { LabelComponent } from '../../../genericos/label/label.component';
 import { ButtonComponent } from '../../../ui/button/button.component';
 import { FormsModule } from '@angular/forms';
 

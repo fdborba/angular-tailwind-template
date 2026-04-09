@@ -4,34 +4,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-input-field',
   imports: [CommonModule],
-  template: `
-    <div class="relative">
-      <input
-        [type]="type"
-        [id]="id"
-        [name]="name"
-        [placeholder]="placeholder"
-        [value]="value"
-        [min]="min"
-        [max]="max"
-        [step]="step"
-        [disabled]="disabled"
-        [ngClass]="inputClasses"
-        (input)="onInput($event)"
-      />
-
-      @if (hint && (error || success)) {
-      <p class="mt-1.5 text-xs"
-        [ngClass]="{
-          'text-error-500': error,
-          'text-success-500': success,
-          'text-gray-500': !error && !success
-        }">
-        {{ hint }}
-      </p>
-      }
-    </div>
-  `,
+  templateUrl: './input-field.component.html',
 })
 export class InputFieldComponent {
 

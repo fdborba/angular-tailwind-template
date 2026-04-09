@@ -1,7 +1,7 @@
 
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
-import { CheckboxComponent } from '../../input/checkbox.component';
+import { CheckboxComponent } from '../../../genericos/checkbox/checkbox.component';
 
 
 @Component({

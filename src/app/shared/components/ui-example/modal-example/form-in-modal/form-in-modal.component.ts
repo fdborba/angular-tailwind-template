@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { ModalComponent } from '../../../ui/modal/modal.component';
 import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
 import { ButtonComponent } from '../../../ui/button/button.component';
-import { LabelComponent } from '../../../form/label/label.component';
-import { InputFieldComponent } from '../../../form/input/input-field.component';
+import { LabelComponent } from '../../../genericos/label/label.component';
+import { InputFieldComponent } from '../../../genericos/input/input-field.component';
 
 @Component({
   selector: 'app-form-in-modal',

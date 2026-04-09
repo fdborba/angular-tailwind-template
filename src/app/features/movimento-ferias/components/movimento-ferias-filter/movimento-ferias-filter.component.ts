@@ -1,8 +1,8 @@
 import { Component, computed, inject, input, output, signal} from "@angular/core";
 import { MovimentoFeriasFilter } from "../../models/movimento-ferias-filter.model";
 import { ComponentCardComponent } from "../../../../shared/components/common/component-card/component-card.component";
-import { LabelComponent } from "../../../../shared/components/form/label/label.component";
-import { InputFieldComponent } from "../../../../shared/components/form/input/input-field.component";
+import { LabelComponent } from "../../../../shared/components/genericos/label/label.component";
+import { InputFieldComponent } from "../../../../shared/components/genericos/input/input-field.component";
 import { BarraBotoesComponent } from "../../../../shared/components/common/barra-botoes/barra-botoes.component";
 import { ButtonComponent } from "../../../../shared/components/ui/button/button.component";
 import { MovimentoFeriasStore } from "../../store/movimento-ferias.store";

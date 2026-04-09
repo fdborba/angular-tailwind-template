@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InputFieldComponent } from './../../form/input/input-field.component';
+import { InputFieldComponent } from '../../genericos/input/input-field.component';
 import { ModalService } from '../../../services/modal.service';
 
 import { ModalComponent } from '../../ui/modal/modal.component';

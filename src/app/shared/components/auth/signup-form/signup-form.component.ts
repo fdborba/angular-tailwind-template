@@ -1,8 +1,8 @@
 
 import { Component } from '@angular/core';
-import { LabelComponent } from '../../form/label/label.component';
-import { CheckboxComponent } from '../../form/input/checkbox.component';
-import { InputFieldComponent } from '../../form/input/input-field.component';
+import { LabelComponent } from '../../genericos/label/label.component';
+import { CheckboxComponent } from '../../genericos/checkbox/checkbox.component';
+import { InputFieldComponent } from '../../genericos/input/input-field.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 

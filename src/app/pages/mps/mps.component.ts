@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PageBreadcrumbComponent } from '../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
-import { LabelComponent } from '../../shared/components/form/label/label.component';
-import { InputFieldComponent } from '../../shared/components/form/input/input-field.component';
+import { LabelComponent } from '../../shared/components/genericos/label/label.component';
+import { InputFieldComponent } from '../../shared/components/genericos/input/input-field.component';
 
 @Component({
   selector: 'app-mps',

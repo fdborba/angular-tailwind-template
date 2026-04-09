@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { BadgeComponent } from '../../../ui/badge/badge.component';
 import { AvatarTextComponent } from '../../../ui/avatar/avatar-text.component';
-import { CheckboxComponent } from '../../../form/input/checkbox.component';
+import { CheckboxComponent } from '../../../genericos/checkbox/checkbox.component';
 
 @Component({
   selector: 'app-basic-table-two',

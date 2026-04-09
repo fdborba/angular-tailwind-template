@@ -1,9 +1,9 @@
 import { Component, output, input, inject, signal } from "@angular/core";
 import { ReactiveFormsModule, FormBuilder, FormGroup } from "@angular/forms";
 import { LancamentoCcuFilter } from "../../models/lancamento-ccu-filter.model";
-import { InputFieldComponent } from "../../../../shared/components/form/input/input-field.component";
-import { LabelComponent } from "../../../../shared/components/form/label/label.component";
-import { SelectComponent } from "../../../../shared/components/form/select/select.component";
+import { InputFieldComponent } from "../../../../shared/components/genericos/input/input-field.component";
+import { LabelComponent } from "../../../../shared/components/genericos/label/label.component";
+import { SelectComponent } from "../../../../shared/components/genericos/select/select.component";
 import { ComponentCardComponent } from "../../../../shared/components/common/component-card/component-card.component";
 import { BarraBotoesComponent } from "../../../../shared/components/common/barra-botoes/barra-botoes.component";
 import { ButtonComponent } from "../../../../shared/components/ui/button/button.component";

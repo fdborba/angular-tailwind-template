@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LabelComponent } from '../../form/label/label.component';
-import { InputFieldComponent } from '../../form/input/input-field.component';
-import { SelectComponent } from '../../form/select/select.component';
-import { TextAreaComponent } from '../../form/input/text-area.component';
+import { LabelComponent } from '../../genericos/label/label.component';
+import { InputFieldComponent } from '../../genericos/input/input-field.component';
+import { SelectComponent } from '../../genericos/select/select.component';
+import { TextAreaComponent } from '../../genericos/text-area/text-area.component';
 import { ButtonComponent } from '../../ui/button/button.component';
 
 @Component({

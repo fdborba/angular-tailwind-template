@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageBreadcrumbComponent } from "../../../shared/components/common/page-breadcrumb/page-breadcrumb.component";
-import { LabelComponent } from "../../../shared/components/form/label/label.component";
-import { InputFieldComponent } from "../../../shared/components/form/input/input-field.component";
+import { LabelComponent } from "../../../shared/components/genericos/label/label.component";
+import { InputFieldComponent } from "../../../shared/components/genericos/input/input-field.component";
 import { MovimentoFeriasEditStore } from '../store/movimento-ferias-edit.store';
 
 @Component({
