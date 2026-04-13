@@ -154,9 +154,9 @@
                   <a href="" class="text-slate-600 hover:text-slate-800">
                     <i class="fas fa-eye"></i>
                   </a>
-                  <a href="" class="text-slate-600 hover:text-slate-800">
+                  <button class="text-slate-600 hover:text-slate-800" (click)="openModal()">
                     <i class="fas fa-edit"></i>
-                  </a>
+                  </button>
                   <a href="" class="text-slate-600 hover:text-slate-800">
                     <i class="fas fa-trash"></i>
                   </a>
@@ -282,5 +282,56 @@
     </div>
   </div>
 
+  <!--MODAL-->
+  <app-modal [isOpen]="isOpen" (close)="closeModal()" className="max-w-[700px] m-4">
+    <div class="relative w-full p-4 overflow-y-auto bg-white no-scrollbar rounded-md dark:bg-gray-900 lg:p-11">
+      <div class="px-2 pr-14">
+        <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+          Edit Address
+        </h4>
+        <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+          Update your details to keep your profile up-to-date.
+        </p>
+      </div>
+      <form class="flex flex-col" (ngSubmit)="handleSave()">
+        <div class="px-2 overflow-y-auto custom-scrollbar">
+          <div class="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
+            <div>
+              <app-label>Invoice Number</app-label>
+              <app-input-field type="text" [value]="address.invoiceNumber" />
+            </div>
+            <div>
+              <app-label>Customer</app-label>
+              <app-input-field type="text" [value]="address.customer" />
+            </div>
+            <div>
+              <app-label>Amount</app-label>
+              <app-input-field type="text" [value]="address.amount" />
+            </div>
+            <div>
+              <app-label>Issued</app-label>
+              <app-input-field type="text" [value]="address.issued" />
+            </div>
+            <div>
+              <app-label>Due Date</app-label>
+              <app-input-field type="text" [value]="address.dueDate" />
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 px-2 mt-6 lg:justify-end">
+          <button
+            class="rounded-md bg-white py-1.5 px-3 border border-[#0062cc] text-center text-sm text-[#0069d9] transition-all shadow-md hover:shadow-lg focus:bg-{#0069d98f} focus:shadow-none active:bg-[#0069d9] hover:bg-[#0069d98f] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+            type="button" (click)="closeModal()">
+            <i class="fas fa-trash-alt"></i> Fechar
+          </button>
+          <button
+            class="rounded-md bg-white py-1.5 px-3 border border-[#0062cc] text-center text-sm text-[#0069d9] transition-all shadow-md hover:shadow-lg focus:bg-{#0069d98f} focus:shadow-none active:bg-[#0069d9] hover:bg-[#0069d98f] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+            type="button" (click)="handleSave()">
+            <i class="fas fa-save"></i> Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </app-modal>
 
 </div>
